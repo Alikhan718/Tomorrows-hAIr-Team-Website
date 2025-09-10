@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomorrow's hAIr - Senior Project Team</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <h1>Tomorrow's hAIr</h1>
+                <p>Senior Project Team</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#tracking">Time Tracking</a></li>
+                <li><a href="#artifacts">Artifacts</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Project Overview Section -->
+        <section id="overview" class="section">
+            <div class="container">
+                <h2>Project Overview</h2>
+                <div class="project-info">
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <h3>Project Name</h3>
+                            <p id="project-name">Tomorrow's hAIr</p>
+                        </div>
+                        <div class="info-item">
+                            <h3>Sponsoring Organization</h3>
+                            <p id="sponsor">[To be filled]</p>
+                        </div>
+                        <div class="info-item">
+                            <h3>Coach</h3>
+                            <p id="coach">[To be filled]</p>
+                        </div>
+                        <div class="info-item">
+                            <h3>Search Keywords</h3>
+                            <p id="keywords">[To be filled]</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="synopsis">
+                    <h3>Project Synopsis</h3>
+                    <p id="project-synopsis">
+                        [Project description - maximum 250 words. This should be approved by your sponsor and coach before submission/publication.]
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team" class="section">
+            <div class="container">
+                <h2>Our Team</h2>
+                <div class="team-grid" id="team-members">
+                    <!-- Team members will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Time Tracking Section -->
+        <section id="tracking" class="section">
+            <div class="container">
+                <h2>Time Tracking</h2>
+                
+                <div class="tracking-controls">
+                    <button id="add-week-btn" class="btn btn-primary">Add New Week</button>
+                    <button id="export-data-btn" class="btn btn-secondary">Export Data</button>
+                    <button id="clear-data-btn" class="btn btn-secondary">Clear Old Data</button>
+                </div>
+
+                <div class="tracking-summary">
+                    <h3>Weekly Summary</h3>
+                    <div class="summary-cards">
+                        <div class="summary-card">
+                            <h4>Total Hours This Week</h4>
+                            <p id="total-hours">0</p>
+                        </div>
+                        <div class="summary-card">
+                            <h4>Average Hours per Member</h4>
+                            <p id="avg-hours">0</p>
+                        </div>
+                        <div class="summary-card">
+                            <h4>Weeks Tracked</h4>
+                            <p id="weeks-count">0</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="charts-container">
+                    <div class="chart-wrapper">
+                        <h3>Weekly Hours by Team Member</h3>
+                        <canvas id="weekly-chart"></canvas>
+                    </div>
+                    <div class="chart-wrapper">
+                        <h3>Total Hours Over Time</h3>
+                        <canvas id="timeline-chart"></canvas>
+                    </div>
+                </div>
+
+                <div class="time-entries">
+                    <h3>Time Entries</h3>
+                    <div id="time-entries-list">
+                        <!-- Time entries will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Artifacts Section -->
+        <section id="artifacts" class="section">
+            <div class="container">
+                <h2>Project Artifacts</h2>
+                <div class="artifacts-grid">
+                    <div class="artifact-card">
+                        <h3>Development Methodology</h3>
+                        <p>Coming soon...</p>
+                    </div>
+                    <div class="artifact-card">
+                        <h3>Product/Process Metrics</h3>
+                        <p>Coming soon...</p>
+                    </div>
+                    <div class="artifact-card">
+                        <h3>Domain Model</h3>
+                        <p>Coming soon...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Tomorrow's hAIr Team - RIT Senior Project</p>
+        </div>
+    </footer>
+
+    <!-- Modal for adding time entries -->
+    <div id="time-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add Time Entry</h2>
+            <form id="time-form">
+                <div class="form-group">
+                    <label for="week-select">Week:</label>
+                    <select id="week-select" required>
+                        <!-- Options will be populated by JavaScript -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="member-select">Team Member:</label>
+                    <select id="member-select" required>
+                        <!-- Options will be populated by JavaScript -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="hours-worked">Hours Worked:</label>
+                    <input type="number" id="hours-worked" min="0" step="0.5" required>
+                </div>
+                <div class="form-group">
+                    <label for="hours-planned">Hours Planned for Next Week:</label>
+                    <input type="number" id="hours-planned" min="0" step="0.5" required>
+                </div>
+                <div class="form-group">
+                    <label for="activities">Activities Description:</label>
+                    <textarea id="activities" rows="3" placeholder="Describe what you worked on..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Entry</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
