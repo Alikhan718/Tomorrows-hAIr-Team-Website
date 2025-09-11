@@ -45,7 +45,7 @@ const projectData = {
         // Example entries - replace with your actual data
         {
             id: 1,
-            week: "Week 1 (Sep 8-12, 2025)",
+            week: "Week 1 (Sep 8-Sep 12, 2025)",
             member: "Alikhan Seitkadyrov",
             hoursWorked: 10,
             hoursPlanned: 10,
@@ -53,8 +53,32 @@ const projectData = {
         },
         {
             id: 2,
-            week: "Week 1 (Sep 8-12, 2025)",
+            week: "Week 1 (Sep 8-Sep 12, 2025)",
             member: "Angela Ngo",
+            hoursWorked: 10,
+            hoursPlanned: 10,
+            activities: "Project setup"
+        },
+        {
+            id: 3,
+            week: "Week 1 (Sep 8-Sep 12, 2025)",
+            member: "Aric Hoang",
+            hoursWorked: 10,
+            hoursPlanned: 10,
+            activities: "Project setup"
+        },
+        {
+            id: 4,
+            week: "Week 1 (Sep 8-Sep 12, 2025)",
+            member: "Kalen L",
+            hoursWorked: 10,
+            hoursPlanned: 10,
+            activities: "Project setup"
+        },
+        {
+            id: 5,
+            week: "Week 1 (Sep 8-Sep 12, 2025)",
+            member: "Alec Kovalczik",
             hoursWorked: 10,
             hoursPlanned: 10,
             activities: "Project setup"
@@ -66,10 +90,13 @@ const projectData = {
     weeklySummaries: [
         {
             week: "Week 1 (Sep 8-12, 2025)",
-            totalHours: 20,
+            totalHours: 50,
             memberHours: {
                 "Alikhan Seitkadyrov": 10,
-                "Angela Ngo": 10
+                "Angela Ngo": 10,
+                "Aric Hoang": 10,
+                "Kalen L": 10,
+                "Alec Kovalczik": 10
             }
         }
         // Add more weekly summaries
@@ -104,28 +131,29 @@ const DataManager = {
     
     // Get all available weeks from project start to mid-December
     getAllAvailableWeeks() {
-        const projectStartDate = new Date(2025, 8, 8); // September 8, 2025
-        const projectEndDate = new Date(2025, 11, 15); // December 15, 2025
         const weeks = [];
         
-        let currentWeek = new Date(projectStartDate);
-        let weekNumber = 1;
+        // Generate weeks 1-14 with the exact format used in timeEntries
+        const weekData = [
+            { num: 1, start: "Sep 8", end: "Sep 12" },
+            { num: 2, start: "Sep 15", end: "Sep 19" },
+            { num: 3, start: "Sep 22", end: "Sep 26" },
+            { num: 4, start: "Sep 29", end: "Oct 3" },
+            { num: 5, start: "Oct 6", end: "Oct 10" },
+            { num: 6, start: "Oct 13", end: "Oct 17" },
+            { num: 7, start: "Oct 20", end: "Oct 24" },
+            { num: 8, start: "Oct 27", end: "Oct 31" },
+            { num: 9, start: "Nov 3", end: "Nov 7" },
+            { num: 10, start: "Nov 10", end: "Nov 14" },
+            { num: 11, start: "Nov 17", end: "Nov 21" },
+            { num: 12, start: "Nov 24", end: "Nov 28" },
+            { num: 13, start: "Dec 1", end: "Dec 5" },
+            { num: 14, start: "Dec 8", end: "Dec 12" }
+        ];
         
-        while (currentWeek <= projectEndDate) {
-            const weekStart = new Date(currentWeek);
-            const weekEnd = new Date(currentWeek);
-            weekEnd.setDate(currentWeek.getDate() + 4); // Friday (5-day work week)
-            
-            const formatDate = (date) => {
-                return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-            };
-            
-            weeks.push(`Week ${weekNumber} (${formatDate(weekStart)}-${formatDate(weekEnd)}, 2025)`);
-            
-            // Move to next week (Monday)
-            currentWeek.setDate(currentWeek.getDate() + 7);
-            weekNumber++;
-        }
+        weekData.forEach(week => {
+            weeks.push(`Week ${week.num} (${week.start}-${week.end}, 2025)`);
+        });
         
         return weeks;
     },

@@ -7,85 +7,22 @@ class ProjectWebsite {
     
     init() {
         this.loadProjectData();
-        this.setupEventListeners();
+        this.setupNavigation();
+        this.addDataSourceNote();
         this.renderTeamMembers();
-        this.renderTimeEntries();
+        this.renderWeeklyTracking();
         this.updateSummaryCards();
         this.initializeCharts();
     }
     
     // Load and display project data
     loadProjectData() {
-        // Always use the data from data.js file, not localStorage for basic project info
+        // Always use the data from data.js file
         document.getElementById('project-name').textContent = projectData.projectName;
         document.getElementById('sponsor').textContent = projectData.sponsor;
         document.getElementById('coach').textContent = projectData.coach;
         document.getElementById('keywords').textContent = projectData.keywords;
         document.getElementById('project-synopsis').textContent = projectData.synopsis;
-        
-        // Only load time tracking data from localStorage (preserve user entries)
-        this.loadTimeTrackingData();
-    }
-    
-    // Load only time tracking data from localStorage
-    loadTimeTrackingData() {
-        try {
-            const saved = localStorage.getItem('tomorrowsHairProjectData');
-            if (saved) {
-                const savedData = JSON.parse(saved);
-                // Only merge time tracking data, keep project info from data.js
-                if (savedData.timeEntries) {
-                    // Update old names in time entries to match current team members
-                    const currentNames = projectData.teamMembers.map(m => m.name);
-                    savedData.timeEntries = savedData.timeEntries.map(entry => {
-                        // If the entry has an old name that doesn't match current team, update it
-                        if (!currentNames.includes(entry.member)) {
-                            // Try to find a matching team member by initials or similar name
-                            const matchingMember = projectData.teamMembers.find(m => 
-                                m.initials === entry.member.split(' ').map(n => n[0]).join('') ||
-                                entry.member.includes(m.name.split(' ')[0])
-                            );
-                            if (matchingMember) {
-                                entry.member = matchingMember.name;
-                            }
-                        }
-                        return entry;
-                    });
-                    projectData.timeEntries = savedData.timeEntries;
-                }
-                if (savedData.weeklySummaries) {
-                    // Update old names in weekly summaries to match current team members
-                    const currentNames = projectData.teamMembers.map(m => m.name);
-                    savedData.weeklySummaries = savedData.weeklySummaries.map(summary => {
-                        const updatedMemberHours = {};
-                        Object.keys(summary.memberHours).forEach(oldName => {
-                            if (currentNames.includes(oldName)) {
-                                updatedMemberHours[oldName] = summary.memberHours[oldName];
-                            } else {
-                                // Try to find matching team member
-                                const matchingMember = projectData.teamMembers.find(m => 
-                                    m.initials === oldName.split(' ').map(n => n[0]).join('') ||
-                                    oldName.includes(m.name.split(' ')[0])
-                                );
-                                if (matchingMember) {
-                                    updatedMemberHours[matchingMember.name] = summary.memberHours[oldName];
-                                } else {
-                                    updatedMemberHours[oldName] = summary.memberHours[oldName];
-                                }
-                            }
-                        });
-                        summary.memberHours = updatedMemberHours;
-                        return summary;
-                    });
-                    projectData.weeklySummaries = savedData.weeklySummaries;
-                }
-            }
-        } catch (e) {
-            console.warn('Could not load time tracking data from localStorage:', e);
-        }
-        
-        // Add a note about data source
-        this.addDataSourceNote();
     }
     
     // Add a note about data source for team members
@@ -112,44 +49,8 @@ class ProjectWebsite {
         }
     }
     
-    // Setup event listeners
-    setupEventListeners() {
-        // Add week button
-        document.getElementById('add-week-btn').addEventListener('click', () => {
-            this.showTimeModal();
-        });
-        
-        // Export data button
-        document.getElementById('export-data-btn').addEventListener('click', () => {
-            DataManager.exportData();
-        });
-        
-        // Clear data button
-        document.getElementById('clear-data-btn').addEventListener('click', () => {
-            if (confirm('Are you sure you want to clear all time tracking data? This will remove all your time entries and cannot be undone.')) {
-                this.clearAllData();
-            }
-        });
-        
-        // Modal close
-        document.querySelector('.close').addEventListener('click', () => {
-            this.hideTimeModal();
-        });
-        
-        // Modal backdrop click
-        document.getElementById('time-modal').addEventListener('click', (e) => {
-            if (e.target.id === 'time-modal') {
-                this.hideTimeModal();
-            }
-        });
-        
-        // Form submission
-        document.getElementById('time-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            this.handleTimeFormSubmit();
-        });
-        
-        // Smooth scrolling for navigation
+    // Setup smooth scrolling for navigation
+    setupNavigation() {
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -181,48 +82,112 @@ class ProjectWebsite {
         });
     }
     
-    // Render time entries
-    renderTimeEntries() {
-        const container = document.getElementById('time-entries-list');
+    // Render weekly tracking display
+    renderWeeklyTracking() {
+        const container = document.getElementById('weekly-tracking-list');
         container.innerHTML = '';
         
-        if (projectData.timeEntries.length === 0) {
-            container.innerHTML = '<p style="text-align: center; color: #7f8c8d; font-style: italic;">No time entries yet. Click "Add New Week" to get started!</p>';
-            return;
-        }
+        // Get all available weeks
+        const allWeeks = DataManager.getAllAvailableWeeks();
         
-        // Group entries by week
-        const entriesByWeek = {};
-        projectData.timeEntries.forEach(entry => {
-            if (!entriesByWeek[entry.week]) {
-                entriesByWeek[entry.week] = [];
-            }
-            entriesByWeek[entry.week].push(entry);
-        });
+        // Debug: Log the data
+        console.log('Available weeks:', allWeeks);
+        console.log('Time entries:', projectData.timeEntries);
         
-        // Render each week
-        Object.keys(entriesByWeek).sort().reverse().forEach(week => {
+        allWeeks.forEach(week => {
             const weekDiv = document.createElement('div');
-            weekDiv.className = 'week-group';
-            weekDiv.innerHTML = `<h4 style="color: #667eea; margin: 2rem 0 1rem 0; padding-bottom: 0.5rem; border-bottom: 2px solid #eee;">${week}</h4>`;
+            weekDiv.className = 'week-display';
+            weekDiv.style.cssText = `
+                background: white;
+                border-radius: 10px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                margin-bottom: 1.5rem;
+                overflow: hidden;
+            `;
             
-            entriesByWeek[week].forEach(entry => {
-                const entryDiv = document.createElement('div');
-                entryDiv.className = 'time-entry';
-                entryDiv.innerHTML = `
-                    <div class="time-entry-header">
-                        <span class="time-entry-member">${entry.member}</span>
-                        <span class="time-entry-week">${entry.week}</span>
-                    </div>
-                    <div class="time-entry-details">
-                        <span><strong>Hours Worked:</strong> ${entry.hoursWorked}</span>
-                        <span><strong>Hours Planned:</strong> ${entry.hoursPlanned}</span>
-                        <span><strong>Activities:</strong> ${entry.activities || 'No description provided'}</span>
+            // Get entries for this week (exact matching)
+            const weekEntries = projectData.timeEntries.filter(entry => entry.week === week);
+            
+            // Debug: Log week matching
+            if (week.includes('Week 1')) {
+                console.log(`Week: ${week}`);
+                console.log(`Found ${weekEntries.length} entries for this week`);
+                console.log('Entries:', weekEntries);
+            }
+            
+            const weekSummary = projectData.weeklySummaries.find(s => s.week === week);
+            
+            // Calculate total hours for this week
+            const totalHours = weekEntries.reduce((sum, entry) => sum + entry.hoursWorked, 0);
+            const plannedHours = weekEntries.reduce((sum, entry) => sum + entry.hoursPlanned, 0);
+            
+            // Create week header
+            const weekHeader = document.createElement('div');
+            weekHeader.style.cssText = `
+                background: linear-gradient(135deg, #667eea, #764ba2);
+                color: white;
+                padding: 1rem 1.5rem;
+                font-weight: bold;
+                font-size: 1.1rem;
+            `;
+            weekHeader.innerHTML = `
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span>${week}</span>
+                    <span>${totalHours} hours worked | ${plannedHours} hours planned</span>
+                </div>
+            `;
+            
+            // Create week content
+            const weekContent = document.createElement('div');
+            weekContent.style.cssText = 'padding: 1.5rem;';
+            
+            if (weekEntries.length === 0) {
+                weekContent.innerHTML = `
+                    <div style="text-align: center; color: #7f8c8d; font-style: italic; padding: 2rem;">
+                        No time entries recorded for this week
                     </div>
                 `;
-                weekDiv.appendChild(entryDiv);
-            });
+            } else {
+                // Group entries by member
+                const entriesByMember = {};
+                weekEntries.forEach(entry => {
+                    if (!entriesByMember[entry.member]) {
+                        entriesByMember[entry.member] = [];
+                    }
+                    entriesByMember[entry.member].push(entry);
+                });
+                
+                let contentHTML = '';
+                Object.keys(entriesByMember).forEach(member => {
+                    const memberEntries = entriesByMember[member];
+                    const memberTotal = memberEntries.reduce((sum, entry) => sum + entry.hoursWorked, 0);
+                    const memberPlanned = memberEntries.reduce((sum, entry) => sum + entry.hoursPlanned, 0);
+                    
+                    contentHTML += `
+                        <div style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid #eee;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                                <h4 style="color: #667eea; margin: 0;">${member}</h4>
+                                <span style="font-weight: bold; color: #2c3e50;">${memberTotal}h worked | ${memberPlanned}h planned</span>
+                            </div>
+                            <div style="display: grid; gap: 0.5rem;">
+                                ${memberEntries.map(entry => `
+                                    <div style="background: #f8f9fa; padding: 0.75rem; border-radius: 5px; border-left: 3px solid #667eea;">
+                                        <div style="font-size: 0.9rem; color: #555;">
+                                            <strong>Hours:</strong> ${entry.hoursWorked} worked, ${entry.hoursPlanned} planned
+                                        </div>
+                                        ${entry.activities ? `<div style="margin-top: 0.25rem; font-size: 0.9rem; color: #666;"><strong>Activities:</strong> ${entry.activities}</div>` : ''}
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                weekContent.innerHTML = contentHTML;
+            }
             
+            weekDiv.appendChild(weekHeader);
+            weekDiv.appendChild(weekContent);
             container.appendChild(weekDiv);
         });
     }
@@ -401,157 +366,7 @@ class ProjectWebsite {
         });
     }
     
-    // Show time entry modal
-    showTimeModal() {
-        const modal = document.getElementById('time-modal');
-        const weekSelect = document.getElementById('week-select');
-        const memberSelect = document.getElementById('member-select');
-        
-        // Populate week select
-        weekSelect.innerHTML = '';
-        const availableWeeks = DataManager.getAllAvailableWeeks();
-        const existingWeeks = DataManager.getAllWeeks();
-        const currentWeek = DataManager.getCurrentWeek();
-        
-        // Combine available weeks with existing weeks, removing duplicates
-        const allWeeks = [...new Set([...availableWeeks, ...existingWeeks])].sort();
-        
-        allWeeks.forEach(week => {
-            const option = document.createElement('option');
-            option.value = week;
-            option.textContent = week;
-            if (week === currentWeek) {
-                option.selected = true;
-            }
-            weekSelect.appendChild(option);
-        });
-        
-        // Populate member select
-        memberSelect.innerHTML = '';
-        DataManager.getAllMembers().forEach(member => {
-            const option = document.createElement('option');
-            option.value = member;
-            option.textContent = member;
-            memberSelect.appendChild(option);
-        });
-        
-        modal.style.display = 'block';
-    }
-    
-    // Hide time entry modal
-    hideTimeModal() {
-        document.getElementById('time-modal').style.display = 'none';
-        document.getElementById('time-form').reset();
-    }
-    
-    // Handle time form submission
-    handleTimeFormSubmit() {
-        const formData = {
-            week: document.getElementById('week-select').value,
-            member: document.getElementById('member-select').value,
-            hoursWorked: document.getElementById('hours-worked').value,
-            hoursPlanned: document.getElementById('hours-planned').value,
-            activities: document.getElementById('activities').value
-        };
-        
-        // Validate form
-        if (!formData.week || !formData.member || !formData.hoursWorked || !formData.hoursPlanned) {
-            alert('Please fill in all required fields.');
-            return;
-        }
-        
-        // Add entry
-        DataManager.addTimeEntry(formData);
-        
-        // Update UI
-        this.renderTimeEntries();
-        this.updateSummaryCards();
-        this.updateCharts();
-        
-        // Hide modal
-        this.hideTimeModal();
-        
-        // Show success message
-        this.showNotification('Time entry added successfully!', 'success');
-    }
-    
-    // Update charts
-    updateCharts() {
-        // Destroy existing charts
-        if (this.charts.weekly) {
-            this.charts.weekly.destroy();
-            this.charts.weekly = null;
-        }
-        if (this.charts.timeline) {
-            this.charts.timeline.destroy();
-            this.charts.timeline = null;
-        }
-        
-        // Recreate the chart containers
-        this.recreateChartContainers();
-        
-        // Reinitialize charts
-        this.initializeCharts();
-    }
-    
-    // Recreate chart containers
-    recreateChartContainers() {
-        const chartsContainer = document.querySelector('.charts-container');
-        if (chartsContainer) {
-            chartsContainer.innerHTML = `
-                <div class="chart-wrapper">
-                    <h3>Weekly Hours by Team Member</h3>
-                    <canvas id="weekly-chart"></canvas>
-                </div>
-                <div class="chart-wrapper">
-                    <h3>Total Hours Over Time</h3>
-                    <canvas id="timeline-chart"></canvas>
-                </div>
-            `;
-        }
-    }
-    
-    // Clear all time tracking data
-    clearAllData() {
-        // Reset time tracking data to initial state
-        projectData.timeEntries = [];
-        projectData.weeklySummaries = [];
-        
-        // Clear localStorage
-        localStorage.removeItem('tomorrowsHairProjectData');
-        
-        // Update UI
-        this.renderTimeEntries();
-        this.updateSummaryCards();
-        this.updateCharts();
-        
-        this.showNotification('All time tracking data has been cleared!', 'success');
-    }
-    
-    // Show notification
-    showNotification(message, type = 'info') {
-        const notification = document.createElement('div');
-        notification.className = `notification notification-${type}`;
-        notification.style.cssText = `
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: ${type === 'success' ? '#4CAF50' : '#2196F3'};
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 5px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            z-index: 1001;
-            animation: slideIn 0.3s ease;
-        `;
-        notification.textContent = message;
-        
-        document.body.appendChild(notification);
-        
-        setTimeout(() => {
-            notification.remove();
-        }, 3000);
-    }
+    // All interactive functions removed - data managed manually in data.js
 }
 
 // Initialize the application when DOM is loaded
