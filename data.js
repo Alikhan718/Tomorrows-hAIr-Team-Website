@@ -14,7 +14,7 @@ const projectData = {
     teamMembers: [
         {
             name: "Alikhan Seitkadyrov",
-            role: "Web Site Manager / Full-Stack Developer",
+            role: "Web Site Manager",
             initials: "AS"
         },
         {
