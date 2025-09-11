@@ -18,6 +18,26 @@ A modern, frontend-only website for RIT Senior Project team documentation and ti
 3. **Add time entries**: Use the "Add New Week" button to track weekly hours
 4. **Export data**: Use the "Export Data" button to save your tracking data
 
+## Team Workflow
+
+### For Project Manager (You):
+1. **Add time entries** using the "Add New Week" button
+2. **Update team information** in `data.js` as needed
+3. **Push changes** to GitHub repository
+4. **Deploy to Vercel** (automatic if connected to GitHub)
+
+### For Team Members:
+1. **Visit the website** to view project progress
+2. **Refresh the page** to see latest updates
+3. **Check the note** in Time Tracking section for last update time
+4. **No editing needed** - just viewing and reporting
+
+### Weekly Process:
+1. Project manager adds time entries for all team members
+2. Updates are pushed to GitHub and deployed to Vercel
+3. Team members refresh the page to see latest data
+4. Charts and summaries update automatically
+
 ## Customization
 
 ### Updating Team Information

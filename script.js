@@ -83,6 +83,33 @@ class ProjectWebsite {
         } catch (e) {
             console.warn('Could not load time tracking data from localStorage:', e);
         }
+        
+        // Add a note about data source
+        this.addDataSourceNote();
+    }
+    
+    // Add a note about data source for team members
+    addDataSourceNote() {
+        const trackingSection = document.querySelector('#tracking .container');
+        if (trackingSection && !document.getElementById('data-source-note')) {
+            const note = document.createElement('div');
+            note.id = 'data-source-note';
+            note.style.cssText = `
+                background: #e3f2fd;
+                border: 1px solid #2196f3;
+                border-radius: 5px;
+                padding: 1rem;
+                margin: 1rem 0;
+                font-size: 0.9rem;
+                color: #1976d2;
+            `;
+            note.innerHTML = `
+                <strong>📝 Note for Team Members:</strong> Time tracking data is updated by Alikhan Seitkadyrov. 
+                If you don't see the latest entries, please refresh the page. 
+                <em>Last updated: ${new Date().toLocaleString()}</em>
+            `;
+            trackingSection.insertBefore(note, trackingSection.querySelector('.tracking-summary'));
+        }
     }
     
     // Setup event listeners

@@ -1,4 +1,5 @@
 // Project data - Easy to update for weekly changes
+// Last updated: ${new Date().toLocaleString()}
 const projectData = {
     // Basic project information
     projectName: "Tomorrow's hAIr",
