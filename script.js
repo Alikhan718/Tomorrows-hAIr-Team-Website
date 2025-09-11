@@ -41,8 +41,8 @@ class ProjectWebsite {
                 color: #1976d2;
             `;
             note.innerHTML = `
-                <strong>📝 Note for Team Members:</strong> Time tracking data is updated by Alikhan Seitkadyrov. 
-                If you don't see the latest entries, please refresh the page. 
+                <strong>📝 Note:</strong> Time tracking data is updated by Alikhan Seitkadyrov. 
+                Refresh the page to see the latest entries. 
                 <em>Last updated: ${new Date().toLocaleString()}</em>
             `;
             trackingSection.insertBefore(note, trackingSection.querySelector('.tracking-summary'));
