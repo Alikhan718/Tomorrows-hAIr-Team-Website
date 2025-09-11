@@ -90,9 +90,7 @@ class ProjectWebsite {
         // Get all available weeks
         const allWeeks = DataManager.getAllAvailableWeeks();
         
-        // Debug: Log the data
-        console.log('Available weeks:', allWeeks);
-        console.log('Time entries:', projectData.timeEntries);
+        // Data loaded from data.js
         
         allWeeks.forEach(week => {
             const weekDiv = document.createElement('div');
@@ -108,12 +106,7 @@ class ProjectWebsite {
             // Get entries for this week (exact matching)
             const weekEntries = projectData.timeEntries.filter(entry => entry.week === week);
             
-            // Debug: Log week matching
-            if (week.includes('Week 1')) {
-                console.log(`Week: ${week}`);
-                console.log(`Found ${weekEntries.length} entries for this week`);
-                console.log('Entries:', weekEntries);
-            }
+            // Week data loaded from timeEntries
             
             const weekSummary = projectData.weeklySummaries.find(s => s.week === week);
             

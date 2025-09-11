@@ -89,7 +89,7 @@ const projectData = {
     // Weekly summaries - Auto-calculated but can be manually adjusted
     weeklySummaries: [
         {
-            week: "Week 1 (Sep 8-12, 2025)",
+            week: "Week 1 (Sep 8-Sep 12, 2025)",
             totalHours: 50,
             memberHours: {
                 "Alikhan Seitkadyrov": 10,
