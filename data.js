@@ -80,22 +80,62 @@ const DataManager = {
     // Get current week string
     getCurrentWeek() {
         const now = new Date();
-        const startOfWeek = new Date(now.setDate(now.getDate() - now.getDay()));
-        const endOfWeek = new Date(now.setDate(now.getDate() - now.getDay() + 6));
+        const projectStartDate = new Date(2025, 8, 8); // September 8, 2025 (month is 0-indexed)
+        
+        // Calculate which week we're in based on project start
+        const timeDiff = now.getTime() - projectStartDate.getTime();
+        const daysDiff = Math.floor(timeDiff / (1000 * 3600 * 24));
+        const weekNumber = Math.floor(daysDiff / 7) + 1;
+        
+        // Calculate the start and end of current week
+        const weekStart = new Date(projectStartDate);
+        weekStart.setDate(projectStartDate.getDate() + (weekNumber - 1) * 7);
+        
+        const weekEnd = new Date(weekStart);
+        weekEnd.setDate(weekStart.getDate() + 4); // Friday (5-day work week)
         
         const formatDate = (date) => {
             return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
         };
         
-        return `Week ${this.getWeekNumber()} (${formatDate(startOfWeek)}-${formatDate(endOfWeek)}, ${now.getFullYear()})`;
+        return `Week ${weekNumber} (${formatDate(weekStart)}-${formatDate(weekEnd)}, 2025)`;
     },
     
-    // Get week number of the year
+    // Get all available weeks from project start to mid-December
+    getAllAvailableWeeks() {
+        const projectStartDate = new Date(2025, 8, 8); // September 8, 2025
+        const projectEndDate = new Date(2025, 11, 15); // December 15, 2025
+        const weeks = [];
+        
+        let currentWeek = new Date(projectStartDate);
+        let weekNumber = 1;
+        
+        while (currentWeek <= projectEndDate) {
+            const weekStart = new Date(currentWeek);
+            const weekEnd = new Date(currentWeek);
+            weekEnd.setDate(currentWeek.getDate() + 4); // Friday (5-day work week)
+            
+            const formatDate = (date) => {
+                return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+            };
+            
+            weeks.push(`Week ${weekNumber} (${formatDate(weekStart)}-${formatDate(weekEnd)}, 2025)`);
+            
+            // Move to next week (Monday)
+            currentWeek.setDate(currentWeek.getDate() + 7);
+            weekNumber++;
+        }
+        
+        return weeks;
+    },
+    
+    // Get week number based on project start
     getWeekNumber() {
         const now = new Date();
-        const start = new Date(now.getFullYear(), 0, 1);
-        const days = Math.floor((now - start) / (24 * 60 * 60 * 1000));
-        return Math.ceil((days + start.getDay() + 1) / 7);
+        const projectStartDate = new Date(2025, 8, 8); // September 8, 2025
+        const timeDiff = now.getTime() - projectStartDate.getTime();
+        const daysDiff = Math.floor(timeDiff / (1000 * 3600 * 24));
+        return Math.floor(daysDiff / 7) + 1;
     },
     
     // Add new time entry

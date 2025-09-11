@@ -382,14 +382,14 @@ class ProjectWebsite {
         
         // Populate week select
         weekSelect.innerHTML = '';
-        const weeks = DataManager.getAllWeeks();
+        const availableWeeks = DataManager.getAllAvailableWeeks();
+        const existingWeeks = DataManager.getAllWeeks();
         const currentWeek = DataManager.getCurrentWeek();
         
-        if (!weeks.includes(currentWeek)) {
-            weeks.unshift(currentWeek);
-        }
+        // Combine available weeks with existing weeks, removing duplicates
+        const allWeeks = [...new Set([...availableWeeks, ...existingWeeks])].sort();
         
-        weeks.forEach(week => {
+        allWeeks.forEach(week => {
             const option = document.createElement('option');
             option.value = week;
             option.textContent = week;
