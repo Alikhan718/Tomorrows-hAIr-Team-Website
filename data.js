@@ -33,7 +33,7 @@ const projectData = {
             initials: "AH"
         },
         {
-            name: "Kalen L",
+            name: "Kalen Luraschi",
             role: "Backend Lead",
             initials: "KL"
         }
@@ -78,7 +78,7 @@ const projectData = {
         {
             id: 5,
             week: "Week 1 (Aug 25-Aug 29, 2025)",
-            member: "Kalen L",
+            member: "Kalen Luraschi",
             hoursWorked: 2,
             hoursPlanned: 8,
             activities: "Backend research"
@@ -120,7 +120,7 @@ const projectData = {
         {
             id: 10,
             week: "Week 2 (Sep 1-Sep 5, 2025)",
-            member: "Kalen L",
+            member: "Kalen Luraschi",
             hoursWorked: 3,
             hoursPlanned: 8,
             activities: "Backend development"
@@ -162,7 +162,7 @@ const projectData = {
         {
             id: 15,
             week: "Week 3 (Sep 8-Sep 12, 2025)",
-            member: "Kalen L",
+            member: "Kalen Luraschi",
             hoursWorked: 4.5,
             hoursPlanned: 8,
             activities: "Backend implementation"
@@ -204,7 +204,7 @@ const projectData = {
         {
             id: 20,
             week: "Week 4 (Sep 15-Sep 19, 2025)",
-            member: "Kalen L",
+            member: "Kalen Luraschi",
             hoursWorked: 7,
             hoursPlanned: 8,
             activities: "Backend development"
@@ -222,7 +222,7 @@ const projectData = {
                 "Alikhan Seitkadyrov": 0,
                 "Angela Ngo": 2,
                 "Aric Hoang": 2,
-                "Kalen L": 2
+                "Kalen Luraschi": 2
             }
         },
         {
@@ -233,7 +233,7 @@ const projectData = {
                 "Alikhan Seitkadyrov": 3,
                 "Angela Ngo": 3,
                 "Aric Hoang": 3,
-                "Kalen L": 3
+                "Kalen Luraschi": 3
             }
         },
         {
@@ -244,7 +244,7 @@ const projectData = {
                 "Alikhan Seitkadyrov": 4.5,
                 "Angela Ngo": 6.5,
                 "Aric Hoang": 6.5,
-                "Kalen L": 4.5
+                "Kalen Luraschi": 4.5
             }
         },
         {
@@ -255,7 +255,7 @@ const projectData = {
                 "Alikhan Seitkadyrov": 8,
                 "Angela Ngo": 13,
                 "Aric Hoang": 7,
-                "Kalen L": 7
+                "Kalen Luraschi": 7
             }
         }
         // Add more weekly summaries
