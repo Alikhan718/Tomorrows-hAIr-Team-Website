@@ -187,11 +187,20 @@ class ProjectWebsite {
     
     // Update summary cards
     updateSummaryCards() {
-        const totalHours = projectData.timeEntries.reduce((sum, entry) => sum + entry.hoursWorked, 0);
-        const avgHours = DataManager.getAverageHoursPerMember();
-        const weeksCount = DataManager.getAllWeeks().length;
+        // Get the most recent week's data
+        const mostRecentWeek = projectData.weeklySummaries[projectData.weeklySummaries.length - 1];
+        const totalHoursThisWeek = mostRecentWeek ? mostRecentWeek.totalHours : 0;
         
-        document.getElementById('total-hours').textContent = totalHours;
+        // Calculate total hours across all weeks
+        const totalHoursAllWeeks = projectData.timeEntries.reduce((sum, entry) => sum + entry.hoursWorked, 0);
+        
+        // Calculate average hours per member
+        const avgHours = DataManager.getAverageHoursPerMember();
+        
+        // Count weeks with data
+        const weeksCount = projectData.weeklySummaries.length;
+        
+        document.getElementById('total-hours').textContent = totalHoursThisWeek;
         document.getElementById('avg-hours').textContent = avgHours;
         document.getElementById('weeks-count').textContent = weeksCount;
     }
@@ -214,15 +223,18 @@ class ProjectWebsite {
             this.charts.weekly.destroy();
         }
         
-        // Get current week data
-        const currentWeek = DataManager.getCurrentWeek();
-        const currentWeekData = projectData.weeklySummaries.find(s => s.week === currentWeek);
+        // Get the most recent week with data
+        const currentWeekData = projectData.weeklySummaries[projectData.weeklySummaries.length - 1];
+        
+        // Debug logging
+        console.log('Weekly chart data:', currentWeekData);
+        console.log('All weekly summaries:', projectData.weeklySummaries);
         
         if (!currentWeekData || Object.keys(currentWeekData.memberHours).length === 0) {
             // Show message if no data
             const wrapper = canvas.parentElement;
             wrapper.innerHTML = 
-                '<h3>Weekly Hours by Team Member</h3><p style="text-align: center; color: #7f8c8d; font-style: italic;">No data for current week yet.</p>';
+                '<h3>Weekly Hours by Team Member</h3><p style="text-align: center; color: #7f8c8d; font-style: italic;">No data available yet.</p>';
             return;
         }
         

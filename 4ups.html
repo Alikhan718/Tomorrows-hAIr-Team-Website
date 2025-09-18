@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4Ups Tracking - Tomorrow's hAIr</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .fourups-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .week-section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+        
+        .week-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .week-dates {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        .fourups-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            min-height: 400px;
+        }
+        
+        .fourup-section {
+            padding: 1.5rem;
+            border-right: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .fourup-section:nth-child(odd) {
+            border-right: 1px solid #eee;
+        }
+        
+        .fourup-section:nth-child(even) {
+            border-right: none;
+        }
+        
+        .fourup-section:nth-last-child(-n+2) {
+            border-bottom: none;
+        }
+        
+        .fourup-title {
+            color: #667eea;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #667eea;
+        }
+        
+        .fourup-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .fourup-item {
+            background: #f8f9fa;
+            margin-bottom: 0.75rem;
+            padding: 0.75rem;
+            border-radius: 5px;
+            border-left: 3px solid #667eea;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .fourup-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        
+        .empty-state {
+            text-align: center;
+            color: #7f8c8d;
+            font-style: italic;
+            padding: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .fourups-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .fourup-section {
+                border-right: none;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .fourup-section:nth-last-child(-n+2) {
+                border-bottom: 1px solid #eee;
+            }
+            
+            .fourup-section:last-child {
+                border-bottom: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <h1>Tomorrow's hAIr</h1>
+                <p>Senior Project Team</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Overview</a></li>
+                <li><a href="index.html#team">Team</a></li>
+                <li><a href="index.html#tracking">Time Tracking</a></li>
+                <li><a href="4ups.html">4Ups</a></li>
+                <li><a href="index.html#artifacts">Artifacts</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="fourups-container">
+                <h2>4Ups Tracking</h2>
+                <p style="text-align: center; color: #666; margin-bottom: 2rem;">
+                    Weekly tracking of Progress, Plans, Risks, and Needs for the MisTee Digital Hair Style Planner project
+                </p>
+                
+                <div id="fourups-list">
+                    <!-- 4Ups will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Tomorrow's hAIr Team - RIT Senior Project</p>
+        </div>
+    </footer>
+
+    <script src="4ups-data.js"></script>
+    <script src="4ups-script.js"></script>
+</body>
+</html>

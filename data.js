@@ -42,46 +42,172 @@ const projectData = {
     
     // Time tracking data - This will be updated weekly
     timeEntries: [
-        // Example entries - replace with your actual data
+        // Week 1 (Aug 25-29, 2025)
         {
             id: 1,
-            week: "Week 1 (Sep 8-Sep 12, 2025)",
-            member: "Alikhan Seitkadyrov",
-            hoursWorked: 10,
-            hoursPlanned: 10,
-            activities: "Project setup"
+            week: "Week 1 (Aug 25-Aug 29, 2025)",
+            member: "Alec Kovalczik",
+            hoursWorked: 1,
+            hoursPlanned: 8,
+            activities: "Initial project planning"
         },
         {
             id: 2,
-            week: "Week 1 (Sep 8-Sep 12, 2025)",
-            member: "Angela Ngo",
-            hoursWorked: 10,
-            hoursPlanned: 10,
+            week: "Week 1 (Aug 25-Aug 29, 2025)",
+            member: "Alikhan Seitkadyrov",
+            hoursWorked: 0,
+            hoursPlanned: 8,
             activities: "Project setup"
         },
         {
             id: 3,
-            week: "Week 1 (Sep 8-Sep 12, 2025)",
-            member: "Aric Hoang",
-            hoursWorked: 10,
-            hoursPlanned: 10,
-            activities: "Project setup"
+            week: "Week 1 (Aug 25-Aug 29, 2025)",
+            member: "Angela Ngo",
+            hoursWorked: 2,
+            hoursPlanned: 8,
+            activities: "Project coordination"
         },
         {
             id: 4,
-            week: "Week 1 (Sep 8-Sep 12, 2025)",
-            member: "Kalen L",
-            hoursWorked: 10,
-            hoursPlanned: 10,
-            activities: "Project setup"
+            week: "Week 1 (Aug 25-Aug 29, 2025)",
+            member: "Aric Hoang",
+            hoursWorked: 2,
+            hoursPlanned: 8,
+            activities: "Frontend research"
         },
         {
             id: 5,
-            week: "Week 1 (Sep 8-Sep 12, 2025)",
+            week: "Week 1 (Aug 25-Aug 29, 2025)",
+            member: "Kalen L",
+            hoursWorked: 2,
+            hoursPlanned: 8,
+            activities: "Backend research"
+        },
+        
+        // Week 2 (Sep 1-5, 2025)
+        {
+            id: 6,
+            week: "Week 2 (Sep 1-Sep 5, 2025)",
             member: "Alec Kovalczik",
-            hoursWorked: 10,
-            hoursPlanned: 10,
-            activities: "Project setup"
+            hoursWorked: 5.5,
+            hoursPlanned: 8,
+            activities: "Communication planning"
+        },
+        {
+            id: 7,
+            week: "Week 2 (Sep 1-Sep 5, 2025)",
+            member: "Alikhan Seitkadyrov",
+            hoursWorked: 3,
+            hoursPlanned: 8,
+            activities: "Website development"
+        },
+        {
+            id: 8,
+            week: "Week 2 (Sep 1-Sep 5, 2025)",
+            member: "Angela Ngo",
+            hoursWorked: 3,
+            hoursPlanned: 8,
+            activities: "Project management"
+        },
+        {
+            id: 9,
+            week: "Week 2 (Sep 1-Sep 5, 2025)",
+            member: "Aric Hoang",
+            hoursWorked: 3,
+            hoursPlanned: 8,
+            activities: "Frontend development"
+        },
+        {
+            id: 10,
+            week: "Week 2 (Sep 1-Sep 5, 2025)",
+            member: "Kalen L",
+            hoursWorked: 3,
+            hoursPlanned: 8,
+            activities: "Backend development"
+        },
+        
+        // Week 3 (Sep 8-12, 2025)
+        {
+            id: 11,
+            week: "Week 3 (Sep 8-Sep 12, 2025)",
+            member: "Alec Kovalczik",
+            hoursWorked: 4.5,
+            hoursPlanned: 8,
+            activities: "Team communication"
+        },
+        {
+            id: 12,
+            week: "Week 3 (Sep 8-Sep 12, 2025)",
+            member: "Alikhan Seitkadyrov",
+            hoursWorked: 4.5,
+            hoursPlanned: 8,
+            activities: "Website updates"
+        },
+        {
+            id: 13,
+            week: "Week 3 (Sep 8-Sep 12, 2025)",
+            member: "Angela Ngo",
+            hoursWorked: 6.5,
+            hoursPlanned: 8,
+            activities: "Project coordination and planning"
+        },
+        {
+            id: 14,
+            week: "Week 3 (Sep 8-Sep 12, 2025)",
+            member: "Aric Hoang",
+            hoursWorked: 6.5,
+            hoursPlanned: 8,
+            activities: "Frontend implementation"
+        },
+        {
+            id: 15,
+            week: "Week 3 (Sep 8-Sep 12, 2025)",
+            member: "Kalen L",
+            hoursWorked: 4.5,
+            hoursPlanned: 8,
+            activities: "Backend implementation"
+        },
+        
+        // Week 4 (Sep 15-19, 2025)
+        {
+            id: 16,
+            week: "Week 4 (Sep 15-Sep 19, 2025)",
+            member: "Alec Kovalczik",
+            hoursWorked: 13,
+            hoursPlanned: 8,
+            activities: "Communication and documentation"
+        },
+        {
+            id: 17,
+            week: "Week 4 (Sep 15-Sep 19, 2025)",
+            member: "Alikhan Seitkadyrov",
+            hoursWorked: 8,
+            hoursPlanned: 8,
+            activities: "Website development and testing"
+        },
+        {
+            id: 18,
+            week: "Week 4 (Sep 15-Sep 19, 2025)",
+            member: "Angela Ngo",
+            hoursWorked: 13,
+            hoursPlanned: 8,
+            activities: "Project management and coordination"
+        },
+        {
+            id: 19,
+            week: "Week 4 (Sep 15-Sep 19, 2025)",
+            member: "Aric Hoang",
+            hoursWorked: 7,
+            hoursPlanned: 8,
+            activities: "Frontend development"
+        },
+        {
+            id: 20,
+            week: "Week 4 (Sep 15-Sep 19, 2025)",
+            member: "Kalen L",
+            hoursWorked: 7,
+            hoursPlanned: 8,
+            activities: "Backend development"
         }
         // Add more entries as you track time
     ],
@@ -89,14 +215,47 @@ const projectData = {
     // Weekly summaries - Auto-calculated but can be manually adjusted
     weeklySummaries: [
         {
-            week: "Week 1 (Sep 8-Sep 12, 2025)",
-            totalHours: 50,
+            week: "Week 1 (Aug 25-Aug 29, 2025)",
+            totalHours: 7,
             memberHours: {
-                "Alikhan Seitkadyrov": 10,
-                "Angela Ngo": 10,
-                "Aric Hoang": 10,
-                "Kalen L": 10,
-                "Alec Kovalczik": 10
+                "Alec Kovalczik": 1,
+                "Alikhan Seitkadyrov": 0,
+                "Angela Ngo": 2,
+                "Aric Hoang": 2,
+                "Kalen L": 2
+            }
+        },
+        {
+            week: "Week 2 (Sep 1-Sep 5, 2025)",
+            totalHours: 17.5,
+            memberHours: {
+                "Alec Kovalczik": 5.5,
+                "Alikhan Seitkadyrov": 3,
+                "Angela Ngo": 3,
+                "Aric Hoang": 3,
+                "Kalen L": 3
+            }
+        },
+        {
+            week: "Week 3 (Sep 8-Sep 12, 2025)",
+            totalHours: 26.5,
+            memberHours: {
+                "Alec Kovalczik": 4.5,
+                "Alikhan Seitkadyrov": 4.5,
+                "Angela Ngo": 6.5,
+                "Aric Hoang": 6.5,
+                "Kalen L": 4.5
+            }
+        },
+        {
+            week: "Week 4 (Sep 15-Sep 19, 2025)",
+            totalHours: 48,
+            memberHours: {
+                "Alec Kovalczik": 13,
+                "Alikhan Seitkadyrov": 8,
+                "Angela Ngo": 13,
+                "Aric Hoang": 7,
+                "Kalen L": 7
             }
         }
         // Add more weekly summaries
@@ -135,20 +294,20 @@ const DataManager = {
         
         // Generate weeks 1-14 with the exact format used in timeEntries
         const weekData = [
-            { num: 1, start: "Sep 8", end: "Sep 12" },
-            { num: 2, start: "Sep 15", end: "Sep 19" },
-            { num: 3, start: "Sep 22", end: "Sep 26" },
-            { num: 4, start: "Sep 29", end: "Oct 3" },
-            { num: 5, start: "Oct 6", end: "Oct 10" },
-            { num: 6, start: "Oct 13", end: "Oct 17" },
-            { num: 7, start: "Oct 20", end: "Oct 24" },
-            { num: 8, start: "Oct 27", end: "Oct 31" },
-            { num: 9, start: "Nov 3", end: "Nov 7" },
-            { num: 10, start: "Nov 10", end: "Nov 14" },
-            { num: 11, start: "Nov 17", end: "Nov 21" },
-            { num: 12, start: "Nov 24", end: "Nov 28" },
-            { num: 13, start: "Dec 1", end: "Dec 5" },
-            { num: 14, start: "Dec 8", end: "Dec 12" }
+            { num: 1, start: "Aug 25", end: "Aug 29" },
+            { num: 2, start: "Sep 1", end: "Sep 5" },
+            { num: 3, start: "Sep 8", end: "Sep 12" },
+            { num: 4, start: "Sep 15", end: "Sep 19" },
+            { num: 5, start: "Sep 22", end: "Sep 26" },
+            { num: 6, start: "Sep 29", end: "Oct 3" },
+            { num: 7, start: "Oct 6", end: "Oct 10" },
+            { num: 8, start: "Oct 13", end: "Oct 17" },
+            { num: 9, start: "Oct 20", end: "Oct 24" },
+            { num: 10, start: "Oct 27", end: "Oct 31" },
+            { num: 11, start: "Nov 3", end: "Nov 7" },
+            { num: 12, start: "Nov 10", end: "Nov 14" },
+            { num: 13, start: "Nov 17", end: "Nov 21" },
+            { num: 14, start: "Nov 24", end: "Nov 28" }
         ];
         
         weekData.forEach(week => {
