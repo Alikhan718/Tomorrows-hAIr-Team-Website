@@ -1,6 +1,38 @@
 // 4Ups tracking data for each week
 const fourUpsData = [
     {
+        week: "Week 5 (Sep 22-Sep 26, 2025)",
+        projectTitle: "MisTee - Digital Hair Style Planner",
+        dates: "9/22/25 – 9/26/25",
+        progress: [
+            "Decided on project and process metrics",
+            "Finalized project tools and techniques",
+            "Completed the domain model",
+            "Created all the user stories from MVP requirements",
+            "Spoke with the previous advisor and team to understand how they did AWS access."
+        ],
+        risks: [
+            "Budget Risks - Some technology might be more expensive than others to construct certain models etc.",
+            "New Technologies - Some of the technologies we are intending to use are new to most of us, and our assumptions could be off about how long they will take to learn or the amount of benefit they will provide to us. We will do some research to get a better understanding of what is feasible."
+        ],
+        plans: [
+            "Create the initial wireframes of the application",
+            "Finalize the project plan and additional elements (Team)",
+            "Start DB design (Kalen) this includes getting AWS root access",
+            "Start CI/CD pipeline design (Kalen)",
+            "Stretch Plan research XCode on free VM or classroom VM and research PGVector (Kalen)",
+            "Develop a PERT Chart to understand feature dependencies (Alec)",
+            "Create user stories based on feedback on low fidelity wire frames (Angela and Aric)",
+            "Create user stories for backend development"
+        ],
+        needs: [
+            "IAM User creation on AWS",
+            "Feedback and approval for:",
+            "User Stories",
+            "Wireframes"
+        ]
+    },
+    {
         week: "Week 3 (Sep 6-Sep 12, 2025)",
         projectTitle: "MisTee - Digital Hair Style Planner",
         dates: "9/6/25 – 9/12/25",
@@ -61,6 +93,41 @@ const fourUpsData = [
             "MVP requirements",
             "Process and Project Metrics",
             "Development Methodology"
+        ]
+    }
+    ,
+    {
+        week: "Week 7 (Oct 6-Oct 10, 2025)",
+        projectTitle: "MisTee - Digital Hair Style Planner",
+        dates: "10/6/25 – 10/10/25",
+        progress: [
+            "Updated the initial wireframes based on Janice’s feedback (Angela and Aric)",
+            "Wrote out user flows for wireframes to go over during Tuesday’s meeting (Angela and Aric)",
+            "Research on potential datasets that are within correct licensing (Angela)",
+            "Start DB design (Kalen, Alec)",
+            "Start CI/CD pipeline design (Kalen, Alikhan)",
+            "Develop an epic-level PERT Chart to understand feature dependencies (Alec)",
+            "Created user stories for backend development (Alec, Kalen, Alikhan)",
+            "Set up plans for Sprint 0 (TEAM)"
+        ],
+        risks: [
+            "Budget Risks - Some technology might be more expensive than others to construct certain models etc.",
+            "New Technologies - Some of the technologies we are intending to use are new to most of us, and our assumptions could be off about how long they will take to learn or the amount of benefit they will provide to us. We will do some research to get a better understanding of what is feasible.",
+            "Limited Dataset - based on our research on licensing, we found that we don’t actually have photos of a ton of hairstyles. We were wondering if it would be possible to get these from partnered hair stylists."
+        ],
+        plans: [
+            "Come up with the primary entities and their attributes for the database (Kalen, Alec, Alikhan)",
+            "Start Sprint 0 (TEAM)",
+            "Stretch Plan research XCode on free VM or classroom VM and on research PGVector (Kalen)",
+            "Create an ERD based on database entities (Kalen, Alec, Alikhan)",
+            "Application Architecture Diagram (Alec)",
+            "Research recommendation systems (Alec)",
+            "Continue to refine user stories based on Janice Feedback (from email from over the weekend) (TEAM)"
+        ],
+        needs: [
+            "Feedback and approval for:",
+            "Low-Fidelity Wireframes",
+            "NDA Documents (Sudhir)"
         ]
     }
     // Add more weeks as they become available

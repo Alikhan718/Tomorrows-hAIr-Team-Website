@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Artifacts - Tomorrow's hAIr</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Simple image modal for in-page zoom */
+        .image-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .image-modal.open { display: flex; }
+        .image-modal-backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+        }
+        .image-modal-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            z-index: 1001;
+        }
+        .image-modal-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        .image-modal-close {
+            position: absolute;
+            top: -14px;
+            right: -14px;
+            background: #fff;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <h1>Tomorrow's hAIr</h1>
+                <p>RIT Senior Project Team</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#overview">Overview</a></li>
+                <li><a href="index.html#team">Team</a></li>
+                <li><a href="index.html#tracking">Time Tracking</a></li>
+                <li><a href="4ups.html">4Ups</a></li>
+                <li><a href="artifacts.html">Artifacts</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <h2>Project Artifacts</h2>
+                <div class="artifacts-grid">
+                    <div class="artifact-card">
+                        <h3>Development Methodology</h3>
+                        <div class="metrics-content">
+                            <h4>Agile Framework, SCRUM</h4>
+                            <p>
+                                Sprints run on a repeating cycle: planning every other week, standups on Mondays 3-4 PM and Thursdays 5-6 PM with interim Discord updates, and sprint demo plus retrospective at the end of each sprint. Demos are held with sponsors Janice and Katherine on Tuesdays, and retrospectives capture improvements, action items, and velocity trends for the next sprint.
+                            </p>
+                            <h4>Core activities</h4>
+                            <p>
+                                Requirements are translated into user stories in the “As a [user], I want to [action], so that [goal]” format, then formed into a product backlog for sprint selection during planning. Each sprint executes the selected work, monitors blockers, and updates dependencies, culminating in a review/demo and retrospective before refining the backlog for the next sprint.
+                            </p>
+                            <h4>Tools</h4>
+                            <p>
+                                Project management and collaboration use Trello, Discord, Google Drive, and Figma for UX design and prototypes. Technical tooling includes GitHub/Actions for version control and CI, Insomnia/Postman for API testing, flutter_test and PyTest for unit tests, plus Flutter, AWS, pgVector, Python, Doxygen, and Terraform for the implementation stack.
+                            </p>
+                            <h4>Roles</h4>
+                            <p>
+                                Product Owner is <strong>Janice</strong>, setting product vision, direction, and accepting/rejecting work at review. <strong>Angela</strong> serves as Project Manager and Scrum Master, bridging stakeholders and developers, managing and prioritizing the backlog, defining “Done,” coaching on Scrum, and removing impediments. The team includes Developers delivering “Done” increments and tracking metrics, Communication Lead <strong>Alec</strong>, Back‑end Lead <strong>Kalen</strong>, Front‑end Lead <strong>Aric</strong>, Git Czar <strong>Alikhan</strong> for repo/CI/CD standards, and a Database Administrator for secure, performant data architecture.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="artifact-card">
+                        <h3>Process and Product Metrics</h3>
+                        <div class="metrics-content">
+                            <h4>Process Metrics:</h4>
+                            <p><strong>Sprint Velocity</strong> - Used to track how our development process is progressing based on predicted work to complete vs the actual work completed. We will go over these metrics at the end of our sprints during sprint retrospective meetings.</p>
+                            
+                            <h4>Product Metrics:</h4>
+                            <p><strong>Code Coverage</strong> - % of code covered by passing tests and unit tests for the frontend and backend. We will be tracking these via testing frameworks such as Pytest, flutter_test and etc.. depending on which language we will choose to work with.</p>
+                        </div>
+                    </div>
+                    <div class="artifact-card">
+                        <h3>Domain Model</h3>
+                        <a id="domain-model-link" href="MisTee Domain Diagram.jpg" style="display:block; text-align:center;">
+                            <img src="MisTee Domain Diagram.jpg" alt="Domain Model" style="max-width:100%; height:auto; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.15);" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- In-page zoom modal -->
+    <div id="image-modal" class="image-modal" aria-hidden="true">
+        <div class="image-modal-backdrop"></div>
+        <div class="image-modal-content">
+            <button class="image-modal-close" aria-label="Close">&times;</button>
+            <img id="image-modal-img" src="" alt="Domain Model Full Size" />
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Tomorrow's hAIr Team - RIT Senior Project</p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var link = document.getElementById('domain-model-link');
+            var modal = document.getElementById('image-modal');
+            var modalImg = document.getElementById('image-modal-img');
+            var closeBtn = document.querySelector('.image-modal-close');
+            var backdrop = document.querySelector('.image-modal-backdrop');
+
+            function openModal(src) {
+                modalImg.src = src;
+                modal.classList.add('open');
+                modal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeModal() {
+                modal.classList.remove('open');
+                modal.setAttribute('aria-hidden', 'true');
+                modalImg.src = '';
+                document.body.style.overflow = '';
+            }
+
+            if (link) {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var fullSrc = link.getAttribute('href');
+                    openModal(fullSrc);
+                });
+            }
+            if (closeBtn) closeBtn.addEventListener('click', closeModal);
+            if (backdrop) backdrop.addEventListener('click', closeModal);
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.classList.contains('open')) {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+

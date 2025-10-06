@@ -211,7 +211,7 @@ class ProjectWebsite {
         this.createTimelineChart();
     }
     
-    // Create weekly hours chart
+    // Create total hours per member chart (aggregated across all weeks)
     createWeeklyChart() {
         const canvas = document.getElementById('weekly-chart');
         if (!canvas) return;
@@ -223,30 +223,37 @@ class ProjectWebsite {
             this.charts.weekly.destroy();
         }
         
-        // Get the most recent week with data
-        const currentWeekData = projectData.weeklySummaries[projectData.weeklySummaries.length - 1];
-        
+        // Aggregate total hours by member across all time entries
+        const memberOrder = projectData.teamMembers.map(m => m.name);
+        const totalsByMember = {};
+        memberOrder.forEach(name => { totalsByMember[name] = 0; });
+        projectData.timeEntries.forEach(entry => {
+            if (typeof entry.hoursWorked === 'number' && !isNaN(entry.hoursWorked)) {
+                totalsByMember[entry.member] = (totalsByMember[entry.member] || 0) + entry.hoursWorked;
+            }
+        });
+
+        const members = memberOrder;
+        const hours = members.map(name => totalsByMember[name] || 0);
+
         // Debug logging
-        console.log('Weekly chart data:', currentWeekData);
-        console.log('All weekly summaries:', projectData.weeklySummaries);
+        console.log('Aggregated total hours by member:', totalsByMember);
         
-        if (!currentWeekData || Object.keys(currentWeekData.memberHours).length === 0) {
-            // Show message if no data
+        // If there is absolutely no data, show a friendly message
+        const hasAnyData = hours.some(h => h > 0);
+        if (!hasAnyData) {
             const wrapper = canvas.parentElement;
             wrapper.innerHTML = 
-                '<h3>Weekly Hours by Team Member</h3><p style="text-align: center; color: #7f8c8d; font-style: italic;">No data available yet.</p>';
+                '<h3>Total Hours by Team Member (All Weeks)</h3><p style="text-align: center; color: #7f8c8d; font-style: italic;">No data available yet.</p>';
             return;
         }
-        
-        const members = Object.keys(currentWeekData.memberHours);
-        const hours = Object.values(currentWeekData.memberHours);
         
         this.charts.weekly = new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: members,
                 datasets: [{
-                    label: 'Hours Worked',
+                    label: 'Total Hours Worked (All Weeks)',
                     data: hours,
                     backgroundColor: [
                         'rgba(102, 126, 234, 0.8)',
