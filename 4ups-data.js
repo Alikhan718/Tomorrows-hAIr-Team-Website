@@ -129,6 +129,108 @@ const fourUpsData = [
             "Low-Fidelity Wireframes",
             "NDA Documents (Sudhir)"
         ]
+    },
+    {
+        week: "Week 8 (Oct 13-Oct 17, 2025)",
+        projectTitle: "MisTee - Digital Hair Style Planner",
+        dates: "10/13/25 – 10/17/25",
+        progress: [
+            "Created frontend user stories and epics for client and stylist screens (Aric, Angela)",
+            "XCode researching (Aric, Angela)",
+            "Came up with the primary entities and their attributes for the database (Kalen, Alec, Alikhan)",
+            "Finished Sprint 0 (TEAM)",
+            "Created an ERD based on database entities (Kalen, Alec, Alikhan)",
+            "Cloud Architecture Diagram (Alec)",
+            "Started research on recommendation systems (Alec)",
+            "Refined user stories based on Janice Feedback (from email from over the weekend) (TEAM)"
+        ],
+        risks: [
+            "Budget Risks - Some technology might be more expensive than others to construct certain models etc.",
+            "New Technologies - Some of the technologies we are intending to use are new to most of us, and our assumptions could be off about how long they will take to learn or the amount of benefit they will provide to us. We will do some research to get a better understanding of what is feasible.",
+            "Asynchronous Coordination - We are setting up a lot of technologies at the next phase and we have a lot of overlapping tasks or tasks that are dependent upon each other, so if we don’t coordinate these tasks properly, we could fall behind schedule."
+        ],
+        plans: [
+            "RESTful API Structure document started",
+            "AWS database set up",
+            "Research on face blurring technology",
+            "Research on instant messaging",
+            "Research on Terraform with AWS Resources",
+            "Research on ios deployment",
+            "Create endpoints for create and getting a client / paying stylist on the database",
+            "Create front end screens for login and signing up for client and paying stylist"
+        ],
+        needs: [
+            "Feedback and approval for:",
+            "Midterm Self Evaluation",
+            "NDA Documents"
+        ]
+    },
+    {
+        week: "Week 9 (Oct 20-Oct 24, 2025)",
+        projectTitle: "MisTee - Digital Hair Style Planner",
+        dates: "10/20/25 – 10/24/25",
+        progress: [
+            "Research on instant messaging",
+            "Research on Terraform with AWS Resources",
+            "Windows emulator set up",
+            "Created the file structure for the backend on the Repository, using Terraform to deploy cloud infrastructure to AWS",
+            "RESTful API Structure document started",
+            "Created Login Screen and Client Signup Screen",
+            "Research on creating an account / signing in through Google Auth"
+        ],
+        risks: [
+            "Budget Risks - Some technology might be more expensive than others to construct certain models etc.",
+            "New Technologies - Some of the technologies we are intending to use are new to most of us, and our assumptions could be off about how long they will take to learn or the amount of benefit they will provide to us. We will do some research to get a better understanding of what is feasible.",
+            "Asynchronous Coordination - We are setting up a lot of technologies at the next phase, and we have a lot of overlapping tasks or tasks that are dependent upon each other, so if we don’t coordinate these tasks properly, we could fall behind schedule."
+        ],
+        plans: [
+            "AWS database set up",
+            "Research on face blurring technology",
+            "Research on ios deployment",
+            "Create endpoints for create and getting a client / paying stylist on the database",
+            "Work on Paying Stylist sign up and sign up decision type screen",
+            "Once the endpoints are set up, we will connect them to our front end screens to do end-to-end testing",
+            "Signup Decision screen",
+            "Hair Stylist Signup screen"
+        ],
+        needs: [
+            "Feedback and approval for:",
+            "NDA Documents"
+        ]
+    },
+    {
+        week: "Week 10 (Oct 27-Oct 31, 2025)",
+        projectTitle: "MisTee - Digital Hair Style Planner",
+        dates: "10/27/25 – 10/31/25",
+        progress: [
+            "AWS database set up",
+            "Researched on face blurring technology",
+            "Researched on iOS deployment",
+            "Created endpoints for creating and getting a client / paying stylist on the database",
+            "Connected and tested some of the end-to-end connections between the screens and API endpoints",
+            "Signup Decision screen",
+            "Hair Stylist Signup screen"
+        ],
+        risks: [
+            "Budget Risks - Some technology might be more expensive than others to construct certain models etc.",
+            "New Technologies - Some of the technologies we are intending to use are new to most of us, and our assumptions could be off about how long they will take to learn or the amount of benefit they will provide to us. We will do some research to get a better understanding of what is feasible.",
+            "Asynchronous Coordination - We are setting up a lot of technologies at the next phase, and we have a lot of overlapping tasks or tasks that are dependent upon each other, so if we don’t coordinate these tasks properly, we could fall behind schedule.",
+            "tests/midterms/projects coming up"
+        ],
+        plans: [
+            "Secure the database",
+            "Come up with a better way to let multiple developers work with Terraform at the same time.",
+            "Make a static API stage URL, so we don’t have to manually change it every time we redeploy the api.",
+            "Creating an endpoint for creating a plan as a user",
+            "Create endpoints for uploading, updating, and retrieving user survey answers and profile information.",
+            "Create the screen for the client profile and editing",
+            "Create screens for paying stylist survey"
+        ],
+        needs: [
+            "Feedback and approval for:",
+            "NDA Documents",
+            "Survey Question Answer options"
+        ]
     }
     // Add more weeks as they become available
 ];
