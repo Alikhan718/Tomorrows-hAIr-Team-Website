@@ -475,41 +475,209 @@ const projectData = {
       id: 51,
       week: "Week 11 (Nov 3-Nov 7, 2025)",
       member: "Alec Kovalczik",
-      hoursWorked: 19,
+      hoursWorked: 26,
       hoursPlanned: 12,
-      activities: "Worked on getting all of the networking set up to host the database in a private network, and allow lambdas to access the database through an RDS proxy, using credentials managed in the secrets manager. (This is almost done, but I'm still getting errors, likely related to mismatched auth right now.) Worked on creating a GET user endpoint that returns all of a user's data. Meetings.",
+      activities: "Worked on getting all of the networking set up to host the database in a private network, and allow lambdas to access the database through an RDS proxy, using credentials managed in the secrets manager. (This is almost done, but I'm still getting errors, likely related to mismatched auth right now.) Worked on creating a GET user endpoint that returns all of a user's data. Meetings. Sprint Planning. Set up an Android Emulator for testing frontend deployments.",
     },
     {
       id: 52,
       week: "Week 11 (Nov 3-Nov 7, 2025)",
       member: "Alikhan Seitkadyrov",
-      hoursWorked: 11,
+      hoursWorked: 20,
       hoursPlanned: 12,
-      activities: "",
+      activities: "Finished working on endpoints for both updating and populating survey information after user submits the info. Reviewed PR's for backend. Set up the Andorid Simulator to work with my Samsung to see how app looks on real phone.",
     },
     {
       id: 53,
       week: "Week 11 (Nov 3-Nov 7, 2025)",
       member: "Angela Ngo",
-      hoursWorked: 23,
+      hoursWorked: 33,
       hoursPlanned: 12,
-      activities: "Login endpoint (for google and default) end to end, Client and Stylist sign up endpoints and conencted it to the frontend end to end, and created postman testing suite to test endpoints, debugged and resolved issues regarding terraform aws api development",
+      activities: "Login endpoint (for google and default) end to end, Client and Stylist sign up endpoints and conencted it to the frontend end to end, and created postman testing suite to test endpoints, debugged and resolved issues regarding terraform aws api development, added question and answer options to database for client and stylist survey",
     },
     {
       id: 54,
       week: "Week 11 (Nov 3-Nov 7, 2025)",
       member: "Aric Hoang",
-      hoursWorked: 2,
+      hoursWorked: 12,
       hoursPlanned: 12,
-      activities: "",
+      activities: "navigation menu, client profile screen",
     },
     {
       id: 55,
       week: "Week 11 (Nov 3-Nov 7, 2025)",
       member: "Kalen Luraschi",
-      hoursWorked: 3.5,
+      hoursWorked: 5,
       hoursPlanned: 12,
-      activities: "teem meeting stand up and sprint 1 planning, finished the sql for adding all tables to the db",
+      activities: "teem meeting stand up and sprint 1 planning, finished the sql for adding all tables to the db, team meeting, added cards to trello",
+    },
+
+    // Week 12 (Nov 10-Nov 14, 2025)
+    {
+      id: 56,
+      week: "Week 12 (Nov 10-Nov 14, 2025)",
+      member: "Alec Kovalczik",
+      hoursWorked: 21,
+      hoursPlanned: 12,
+      activities: "Refactored the API module to allow for a path parameter for an endpoint. Worked on an endpoint for getting all of the user's survey data for their profile. PR reviews. A little bit of sprint planning. Meetings and meeting planning. Created a solution that allows multiple developers to deploy the same resources at the same time without conflicts by using an environment variable. Worked on an endpoint for getting stylists in the system so clients can connect to them. Resolving merge conflicts.",
+    },
+    {
+      id: 57,
+      week: "Week 12 (Nov 10-Nov 14, 2025)",
+      member: "Alikhan Seitkadyrov",
+      hoursWorked: 18,
+      hoursPlanned: 12,
+      activities: "Implemented the endpoint to create plan for client user. Adjusted signup endpoint to also add entry to ClientAttr and Planner tables when new user is joining platform. Reviewed PR's of teammates. Sprint planning",
+    },
+    {
+      id: 58,
+      week: "Week 12 (Nov 10-Nov 14, 2025)",
+      member: "Angela Ngo",
+      hoursWorked: 17,
+      hoursPlanned: 12,
+      activities: "worked on merge conflicts and also on get endpoint for question and answers for survey which works for client and stylist, working on organizing user stories for sprint 3, writing out the co-op opt in form, cleaning up trello board, finished dynamic template for client and stylist survey",
+    },
+    {
+      id: 59,
+      week: "Week 12 (Nov 10-Nov 14, 2025)",
+      member: "Aric Hoang",
+      hoursWorked: 12,
+      hoursPlanned: 12,
+      activities: "navigation menu, client profile screen",
+    },
+    {
+      id: 60,
+      week: "Week 12 (Nov 10-Nov 14, 2025)",
+      member: "Kalen Luraschi",
+      hoursWorked: 11.5,
+      hoursPlanned: 12,
+      activities: "Created endpoint for getting specific plan, meetings, PR fix pytest, team meeting, merge conflict fix, update design doc and diagram, S3 bucket creation, started creating endpoint to upload image to S3 bucket",
+    },
+
+    // Week 13 (Nov 17-Nov 21, 2025)
+    {
+      id: 61,
+      week: "Week 13 (Nov 17-Nov 21, 2025)",
+      member: "Alec Kovalczik",
+      hoursWorked: 29,
+      hoursPlanned: 12,
+      activities: "Learning and writing flutter code for populating the stylists list in the client-signup with stylists from the database. A ton of android emulator debugging. Finished connecting the api endpoint for getting stylists with the frontend widget. Made an endpoint for creating client-stylist relationships in the db. Connected the frontend to the endpoint for creating client-stylist relationships. Worked on PR reviews. Started working on a document to help prepare for the focus group discussion. Team meetings. Collecting resources for Project video. Started development on the screens for creating plans of vaious types.",
+    },
+    {
+      id: 62,
+      week: "Week 13 (Nov 17-Nov 21, 2025)",
+      member: "Alikhan Seitkadyrov",
+      hoursWorked: 18,
+      hoursPlanned: 12,
+      activities: "Made the endpoint to get all available plans for the client. Worked on tests a lot and implemented 5 various postman tests to thoroughly test the endpoint. Made few adjustments as was requested by the teammates. Sprint planning and started working on final senior project video by gathering all necessary info, videos and pictures.",
+    },
+    {
+      id: 63,
+      week: "Week 13 (Nov 17-Nov 21, 2025)",
+      member: "Angela Ngo",
+      hoursWorked: 21,
+      hoursPlanned: 12,
+      activities: "completed edit client profile, review PRs, coach Aric with development, film demo",
+    },
+    {
+      id: 64,
+      week: "Week 13 (Nov 17-Nov 21, 2025)",
+      member: "Aric Hoang",
+      hoursWorked: 17,
+      hoursPlanned: 12,
+      activities: "client profile screen, reviewing PRs",
+    },
+    {
+      id: 65,
+      week: "Week 13 (Nov 17-Nov 21, 2025)",
+      member: "Kalen Luraschi",
+      hoursWorked: 10.5,
+      hoursPlanned: 12,
+      activities: "Created endpoint to upload image to S3 buscket while also adding it to the plan image_url list, reviewed Alngels PR, made changes according to Alecs PR comments for my PR. created delete plan image endpoint",
+    },
+
+    // Week 14 (Nov 24-Nov 28, 2025)
+    {
+      id: 66,
+      week: "Week 14 (Nov 24-Nov 28, 2025)",
+      member: "Alec Kovalczik",
+      hoursWorked: 17,
+      hoursPlanned: 12,
+      activities: "Worked on Create Plan pages. Added to presentation for end of the semester for Senior Project",
+    },
+    {
+      id: 67,
+      week: "Week 14 (Nov 24-Nov 28, 2025)",
+      member: "Alikhan Seitkadyrov",
+      hoursWorked: 18,
+      hoursPlanned: 12,
+      activities: "Worked on endpoint to delete specific plan for a client and tested it. Also reviewed some of my teammates code. Started working on the final presentation slides and finished working on the senior project video editing.",
+    },
+    {
+      id: 68,
+      week: "Week 14 (Nov 24-Nov 28, 2025)",
+      member: "Angela Ngo",
+      hoursWorked: 24,
+      hoursPlanned: 12,
+      activities: "completed the monthly, quarterly, yearly and schedule view of planner and have the plans show up on the screens. routed the client menu to actual paths, working on the end of semester presentation, review PRs",
+    },
+    {
+      id: 69,
+      week: "Week 14 (Nov 24-Nov 28, 2025)",
+      member: "Aric Hoang",
+      hoursWorked: 15,
+      hoursPlanned: 12,
+      activities: "paying stylist profile, manage subscription screen, review angela PRs, edit paying stylist profile",
+    },
+    {
+      id: 70,
+      week: "Week 14 (Nov 24-Nov 28, 2025)",
+      member: "Kalen Luraschi",
+      hoursWorked: 6,
+      hoursPlanned: 12,
+      activities: "Team meeting, get image endpoint, presentation work",
+    },
+
+    // Week 15 (Dec 1-Dec 5, 2025)
+    {
+      id: 71,
+      week: "Week 15 (Dec 1-Dec 5, 2025)",
+      member: "Alec Kovalczik",
+      hoursWorked: 42,
+      hoursPlanned: 12,
+      activities: "Drastically improved android emulator performance and android build performance. Tested new code added by other frontend developers. Made the frontend screens for creating plans (involved some refactoring). Worked on presentation. Frontend screen for viewing plan. Presentation practice and refinement. Presenting.",
+    },
+    {
+      id: 72,
+      week: "Week 15 (Dec 1-Dec 5, 2025)",
+      member: "Alikhan Seitkadyrov",
+      hoursWorked: 14,
+      hoursPlanned: 12,
+      activities: "Implemented 2 new endpoints, one for validating that stylist has access to specific clients planner and another one to get all clients associated with the specific stylist. Worked on final presentation with the team and practiced speech. Presented final presentation for all the stakeholders.",
+    },
+    {
+      id: 73,
+      week: "Week 15 (Dec 1-Dec 5, 2025)",
+      member: "Angela Ngo",
+      hoursWorked: 15,
+      hoursPlanned: 12,
+      activities: "work on team presentation, review alec PRs",
+    },
+    {
+      id: 74,
+      week: "Week 15 (Dec 1-Dec 5, 2025)",
+      member: "Aric Hoang",
+      hoursWorked: 8,
+      hoursPlanned: 12,
+      activities: "presentation",
+    },
+    {
+      id: 75,
+      week: "Week 15 (Dec 1-Dec 5, 2025)",
+      member: "Kalen Luraschi",
+      hoursWorked: 0,
+      hoursPlanned: 12,
+      activities: "",
     },
   ],
 
@@ -627,13 +795,57 @@ const projectData = {
     },
     {
       week: "Week 11 (Nov 3-Nov 7, 2025)",
-      totalHours: 58.5,
+      totalHours: 96,
       memberHours: {
-        "Alec Kovalczik": 19,
-        "Alikhan Seitkadyrov": 11,
-        "Angela Ngo": 23,
-        "Aric Hoang": 2,
-        "Kalen Luraschi": 3.5,
+        "Alec Kovalczik": 26,
+        "Alikhan Seitkadyrov": 20,
+        "Angela Ngo": 33,
+        "Aric Hoang": 12,
+        "Kalen Luraschi": 5,
+      },
+    },
+    {
+      week: "Week 12 (Nov 10-Nov 14, 2025)",
+      totalHours: 79.5,
+      memberHours: {
+        "Alec Kovalczik": 21,
+        "Alikhan Seitkadyrov": 18,
+        "Angela Ngo": 17,
+        "Aric Hoang": 12,
+        "Kalen Luraschi": 11.5,
+      },
+    },
+    {
+      week: "Week 13 (Nov 17-Nov 21, 2025)",
+      totalHours: 95.5,
+      memberHours: {
+        "Alec Kovalczik": 29,
+        "Alikhan Seitkadyrov": 18,
+        "Angela Ngo": 21,
+        "Aric Hoang": 17,
+        "Kalen Luraschi": 10.5,
+      },
+    },
+    {
+      week: "Week 14 (Nov 24-Nov 28, 2025)",
+      totalHours: 80,
+      memberHours: {
+        "Alec Kovalczik": 17,
+        "Alikhan Seitkadyrov": 18,
+        "Angela Ngo": 24,
+        "Aric Hoang": 15,
+        "Kalen Luraschi": 6,
+      },
+    },
+    {
+      week: "Week 15 (Dec 1-Dec 5, 2025)",
+      totalHours: 79,
+      memberHours: {
+        "Alec Kovalczik": 42,
+        "Alikhan Seitkadyrov": 14,
+        "Angela Ngo": 15,
+        "Aric Hoang": 8,
+        "Kalen Luraschi": 0,
       },
     },
   ],
@@ -674,7 +886,7 @@ const DataManager = {
   getAllAvailableWeeks() {
     const weeks = [];
 
-    // Generate weeks 1-14 with the exact format used in timeEntries
+    // Generate weeks 1-15 with the exact format used in timeEntries
     const weekData = [
       { num: 1, start: "Aug 25", end: "Aug 29" },
       { num: 2, start: "Sep 1", end: "Sep 5" },
@@ -690,6 +902,7 @@ const DataManager = {
       { num: 12, start: "Nov 10", end: "Nov 14" },
       { num: 13, start: "Nov 17", end: "Nov 21" },
       { num: 14, start: "Nov 24", end: "Nov 28" },
+      { num: 15, start: "Dec 1", end: "Dec 5" },
     ];
 
     weekData.forEach((week) => {
@@ -776,6 +989,18 @@ const DataManager = {
     return uniqueMembers.length > 0
       ? (totalHours / uniqueMembers.length).toFixed(1)
       : 0;
+  },
+
+  // Get average hours per week
+  getAverageHoursPerWeek() {
+    if (projectData.weeklySummaries.length === 0) {
+      return 0;
+    }
+    const totalHoursAllWeeks = projectData.weeklySummaries.reduce(
+      (sum, summary) => sum + summary.totalHours,
+      0
+    );
+    return (totalHoursAllWeeks / projectData.weeklySummaries.length).toFixed(1);
   },
 
   // Get all weeks

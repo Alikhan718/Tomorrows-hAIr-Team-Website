@@ -1,6 +1,131 @@
 // 4Ups tracking data for each week
 const fourUpsData = [
     {
+        week: "Week 14 (Nov 24-Nov 28, 2025)",
+        projectTitle: "MisTee - Digital Hair Style Planner",
+        dates: "11/24/25 – 11/28/25",
+        progress: [
+            "Endpoints to validate if stylists have access to a client's planner",
+            "Completed screens for making plans",
+            "Created a screen for editing a paying stylist's profile",
+            "Created screens for viewing plans after they are made",
+            "Created a schedule view for the planner",
+            "Plans are visually represented on each of the different planner views."
+        ],
+        risks: [
+            "Budget Risks - Some technology might be more expensive than others to construct certain models etc.",
+            "Asynchronous Coordination - We are setting up a lot of technologies at the next phase, and we have a lot of overlapping tasks or tasks that are dependent upon each other, so if we don't coordinate these tasks properly, we could fall behind schedule.",
+            "Tests/finals/projects coming up"
+        ],
+        plans: [
+            "Create an endpoint for uploading a profile picture to a client or stylist profile",
+            "Paying stylist viewing access to the client planner and the client user profile",
+            "Finish and practice the end-of-semester presentation.",
+            "Creating unit tests for front-end code.",
+            "Creating features to improve the development process.",
+            "Creating documentation for important processes and aspects of the application.",
+            "Research on Direct messaging."
+        ],
+        needs: []
+    },
+    {
+        week: "Week 13 (Nov 17-Nov 21, 2025)",
+        projectTitle: "MisTee - Digital Hair Style Planner",
+        dates: "11/17/25 – 11/21/25",
+        progress: [
+            "Completed endpoint for deleting an image from a plan",
+            "Created planner yearly/quarterly and monthly view",
+            "Paying stylist profile view",
+            "Started making a page for creating plans",
+            "Senior Project Video",
+            "Started making the end-of-semester presentation"
+        ],
+        risks: [
+            "Budget Risks - Some technology might be more expensive than others to construct certain models etc.",
+            "Asynchronous Coordination - We are setting up a lot of technologies at the next phase, and we have a lot of overlapping tasks or tasks that are dependent upon each other, so if we don't coordinate these tasks properly, we could fall behind schedule.",
+            "Tests/finals/projects coming up",
+            "Senior project deliverables(video and presentation), potential scheduling overlapping with finals (12/10)"
+        ],
+        plans: [
+            "Endpoints to get all of a stylist's clients and to validate if they have access to a client's planner",
+            "Complete screens for making plans",
+            "Create a screen for editing a paying stylist's profile",
+            "Create an endpoint for uploading a profile picture to a client or stylist profile",
+            "Create screens for viewing plans after they are made",
+            "Finish and practice the end-of-semester presentation."
+        ],
+        needs: [
+            "Feedback and approval for:",
+            "NDA Documents"
+        ]
+    },
+    {
+        week: "Week 12 (Nov 10-Nov 14, 2025)",
+        projectTitle: "MisTee - Digital Hair Style Planner",
+        dates: "11/10/25 – 11/14/25",
+        progress: [
+            "Completed screens for initial client and user survey",
+            "Completed endpoints for uploading, updating, and retrieving user survey answers and profile information.",
+            "Complete screens for client profile and editing profile",
+            "Complete endpoint for creating a plan as a client",
+            "Implement Terraform collaboration improvements",
+            "Created an endpoint for making client stylist relationships.",
+            "Improved Client Signup, allowing clients to connect to real stylists in the database during signup"
+        ],
+        risks: [
+            "Budget Risks - Some technology might be more expensive than others to construct certain models etc.",
+            "Asynchronous Coordination - We are setting up a lot of technologies at the next phase, and we have a lot of overlapping tasks or tasks that are dependent upon each other, so if we don't coordinate these tasks properly, we could fall behind schedule.",
+            "Tests/finals/projects coming up",
+            "Senior project deliverables(video and presentation), potential scheduling overlapping with finals (12/10)"
+        ],
+        plans: [
+            "Endpoints for uploading profile picture to user account and retrieving them.",
+            "Endpoints for deleting a plan and its details and deleting specific photos from a plan.",
+            "Create client planner yearly view",
+            "Paying stylist profile view",
+            "Screens for creating hairstyle plan, hairstyle plan for event, and growth plan.",
+            "Senior Project Video",
+            "End of semester Presentation preparation"
+        ],
+        needs: [
+            "Feedback and approval for:",
+            "NDA Documents"
+        ]
+    },
+    {
+        week: "Week 11 (Nov 3-Nov 7, 2025)",
+        projectTitle: "MisTee - Digital Hair Style Planner",
+        dates: "11/03/25 – 11/07/25",
+        progress: [
+            "Conducted research on how to improve Terraform collaboration, have yet to implement",
+            "Researched how to use S3 buckets to store photos and reference them in the database",
+            "Worked on screens for client profile and editing profile",
+            "Added information to Database for Question and Answer options for the survey",
+            "Worked on endpoint for retrieving user profile information",
+            "Improved API module to permit a path parameter as a data input so we can adhere to best practices."
+        ],
+        risks: [
+            "Budget Risks - Some technology might be more expensive than others to construct certain models etc.",
+            "New Technologies - Some of the technologies we are intending to use are new to most of us, and our assumptions could be off about how long they will take to learn or the amount of benefit they will provide to us. We will do some research to get a better understanding of what is feasible.",
+            "Asynchronous Coordination - We are setting up a lot of technologies at the next phase, and we have a lot of overlapping tasks or tasks that are dependent upon each other, so if we don't coordinate these tasks properly, we could fall behind schedule.",
+            "tests/midterms/projects coming up"
+        ],
+        plans: [
+            "Complete screens for initial client and user survey",
+            "Make a static API stage URL so don't have to manually change it every time we redeploy the API",
+            "Complete endpoints for uploading, updating, and retrieving user survey answers and profile information.",
+            "Complete screens for client profile and editing profile",
+            "Complete endpoint for creating a plan as a client",
+            "Secure the database",
+            "Implement Terraform collaboration improvements"
+        ],
+        needs: [
+            "Feedback and approval for:",
+            "NDA Documents",
+            "Ask for approval on allowing co-ops (other students) to be hired in the spring semester to complete MVP and get to stretch goal requirements."
+        ]
+    },
+    {
         week: "Week 5 (Sep 22-Sep 26, 2025)",
         projectTitle: "MisTee - Digital Hair Style Planner",
         dates: "9/22/25 – 9/26/25",

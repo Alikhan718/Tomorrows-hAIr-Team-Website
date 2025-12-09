@@ -50,6 +50,26 @@
             cursor: pointer;
             box-shadow: 0 2px 6px rgba(0,0,0,0.2);
         }
+        
+        /* Domain Model Card Styling */
+        .domain-model-card {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .domain-model-card h3 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .domain-model-card img {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .domain-model-card img:hover {
+            transform: scale(1.02);
+        }
     </style>
 </head>
 <body>
@@ -61,8 +81,8 @@
             </div>
             <ul class="nav-links">
                 <li><a href="index.html#overview">Overview</a></li>
-                <li><a href="index.html#team">Team</a></li>
                 <li><a href="index.html#tracking">Time Tracking</a></li>
+                <li><a href="metrics.html">Metrics</a></li>
                 <li><a href="4ups.html">4Ups</a></li>
                 <li><a href="artifacts.html">Artifacts</a></li>
             </ul>
@@ -73,6 +93,18 @@
         <section class="section">
             <div class="container">
                 <h2>Project Artifacts</h2>
+                
+                <!-- Domain Model Section - Separated at the top -->
+                <div style="margin-bottom: 4rem;">
+                    <div class="artifact-card domain-model-card">
+                        <h3>Domain Model</h3>
+                        <a id="domain-model-link" href="MisTee Domain Diagram.jpg" style="display:block; text-align:center;">
+                            <img src="MisTee Domain Diagram.jpg" alt="Domain Model" style="max-width:100%; height:auto; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.15);" />
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Other Artifacts Section -->
                 <div class="artifacts-grid">
                     <div class="artifact-card">
                         <h3>Development Methodology</h3>
@@ -83,7 +115,7 @@
                             </p>
                             <h4>Core activities</h4>
                             <p>
-                                Requirements are translated into user stories in the “As a [user], I want to [action], so that [goal]” format, then formed into a product backlog for sprint selection during planning. Each sprint executes the selected work, monitors blockers, and updates dependencies, culminating in a review/demo and retrospective before refining the backlog for the next sprint.
+                                Requirements are translated into user stories in the "As a [user], I want to [action], so that [goal]" format, then formed into a product backlog for sprint selection during planning. Each sprint executes the selected work, monitors blockers, and updates dependencies, culminating in a review/demo and retrospective before refining the backlog for the next sprint.
                             </p>
                             <h4>Tools</h4>
                             <p>
@@ -91,25 +123,23 @@
                             </p>
                             <h4>Roles</h4>
                             <p>
-                                Product Owner is <strong>Janice</strong>, setting product vision, direction, and accepting/rejecting work at review. <strong>Angela</strong> serves as Project Manager and Scrum Master, bridging stakeholders and developers, managing and prioritizing the backlog, defining “Done,” coaching on Scrum, and removing impediments. The team includes Developers delivering “Done” increments and tracking metrics, Communication Lead <strong>Alec</strong>, Back‑end Lead <strong>Kalen</strong>, Front‑end Lead <strong>Aric</strong>, Git Czar <strong>Alikhan</strong> for repo/CI/CD standards, and a Database Administrator for secure, performant data architecture.
+                                Product Owner is <strong>Janice</strong>, setting product vision, direction, and accepting/rejecting work at review. <strong>Angela</strong> serves as Project Manager and Scrum Master, bridging stakeholders and developers, managing and prioritizing the backlog, defining "Done," coaching on Scrum, and removing impediments. The team includes Developers delivering "Done" increments and tracking metrics, Communication Lead <strong>Alec</strong>, Back‑end Lead <strong>Kalen</strong>, Front‑end Lead <strong>Aric</strong>, Git Czar <strong>Alikhan</strong> for repo/CI/CD standards, and a Database Administrator for secure, performant data architecture.
                             </p>
                         </div>
                     </div>
                     <div class="artifact-card">
                         <h3>Process and Product Metrics</h3>
                         <div class="metrics-content">
-                            <h4>Process Metrics:</h4>
-                            <p><strong>Sprint Velocity</strong> - Used to track how our development process is progressing based on predicted work to complete vs the actual work completed. We will go over these metrics at the end of our sprints during sprint retrospective meetings.</p>
+                            <h4>Product Metrics</h4>
+                            <p><strong>Code Coverage</strong> measures the percentage of our code that's tested. It helps us measure the quality of the code we deliver by ensuring our codebase is thoroughly tested.</p>
                             
-                            <h4>Product Metrics:</h4>
-                            <p><strong>Code Coverage</strong> - % of code covered by passing tests and unit tests for the frontend and backend. We will be tracking these via testing frameworks such as Pytest, flutter_test and etc.. depending on which language we will choose to work with.</p>
+                            <p><strong>Defect Density</strong> tracks bugs across the entire development lifecycle. Every defect goes into our tracking spreadsheet with a status. This lets us know our quality trends and identify areas for improvement.</p>
+                            
+                            <h4>Process Metrics</h4>
+                            <p><strong>Sprint Velocity</strong> - At the end of each sprint, we compare story points we planned versus what we actually completed. This helps us measure how we're executing as a team and how we estimate future work.</p>
+                            
+                            <p><strong>Burndown Chart</strong> tracks remaining work during each sprint. As sprint days progress, the work remaining should also decrease, helping us visualize our progress and identify potential issues early.</p>
                         </div>
-                    </div>
-                    <div class="artifact-card">
-                        <h3>Domain Model</h3>
-                        <a id="domain-model-link" href="MisTee Domain Diagram.jpg" style="display:block; text-align:center;">
-                            <img src="MisTee Domain Diagram.jpg" alt="Domain Model" style="max-width:100%; height:auto; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.15);" />
-                        </a>
                     </div>
                 </div>
             </div>

@@ -16,8 +16,8 @@
             </div>
             <ul class="nav-links">
                 <li><a href="#overview">Overview</a></li>
-                <li><a href="#team">Team</a></li>
                 <li><a href="#tracking">Time Tracking</a></li>
+                <li><a href="metrics.html">Metrics</a></li>
                 <li><a href="4ups.html">4Ups</a></li>
                 <li><a href="artifacts.html">Artifacts</a></li>
             </ul>
@@ -59,6 +59,40 @@
             </div>
         </section>
 
+        <!-- Senior Project Video Section -->
+        <section id="video" class="section">
+            <div class="container">
+                <h2>Senior Project Video</h2>
+                <div class="video-container">
+                    <div class="video-wrapper" id="youtube-player">
+                        <iframe 
+                            src="https://www.youtube.com/embed/20dqfQjVQ64" 
+                            title="Tomorrow's hAIr - Senior Project Video"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            loading="lazy"
+                            onerror="this.style.display='none'; document.getElementById('youtube-thumbnail').style.display='block';">
+                        </iframe>
+                        <!-- Fallback thumbnail that appears if iframe fails -->
+                        <a href="https://www.youtube.com/watch?v=20dqfQjVQ64" target="_blank" rel="noopener noreferrer" id="youtube-thumbnail" class="youtube-thumbnail" style="display: none;">
+                            <img src="https://img.youtube.com/vi/20dqfQjVQ64/maxresdefault.jpg" alt="Senior Project Video Thumbnail" />
+                            <div class="play-button">
+                                <svg width="68" height="48" viewBox="0 0 68 48">
+                                    <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.63-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
+                                    <path d="M 45,24 27,14 27,34" fill="#fff"></path>
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="video-fallback">
+                        <p>If the video doesn't load, you can <a href="https://www.youtube.com/watch?v=20dqfQjVQ64" target="_blank" rel="noopener noreferrer">watch it on YouTube</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Team Section -->
         <section id="team" class="section">
             <div class="container">
@@ -84,7 +118,7 @@
                             <p id="total-hours">0</p>
                         </div>
                         <div class="summary-card">
-                            <h4>Average Hours per Member</h4>
+                            <h4>Average Hours per Week</h4>
                             <p id="avg-hours">0</p>
                         </div>
                         <div class="summary-card">
@@ -125,5 +159,43 @@
 
     <script src="data.js"></script>
     <script src="script.js"></script>
+    <script>
+        // Detect YouTube embed errors and show thumbnail fallback
+        window.addEventListener('load', function() {
+            const iframe = document.querySelector('#youtube-player iframe');
+            const thumbnail = document.getElementById('youtube-thumbnail');
+            
+            if (iframe && thumbnail) {
+                // Check if iframe loaded successfully after a delay
+                setTimeout(function() {
+                    // Check if iframe is showing an error by checking its dimensions
+                    // If iframe fails, YouTube typically shows a small error box
+                    const checkError = setInterval(function() {
+                        try {
+                            // Try to detect if there's an error message in the iframe
+                            // Since we can't access cross-origin content, we'll check visibility
+                            const rect = iframe.getBoundingClientRect();
+                            if (rect.height < 100) {
+                                // Likely an error - show thumbnail
+                                iframe.style.display = 'none';
+                                thumbnail.style.display = 'flex';
+                                clearInterval(checkError);
+                            }
+                        } catch (e) {
+                            // Error accessing iframe - show thumbnail as fallback
+                            iframe.style.display = 'none';
+                            thumbnail.style.display = 'flex';
+                            clearInterval(checkError);
+                        }
+                    }, 1000);
+                    
+                    // Stop checking after 5 seconds
+                    setTimeout(function() {
+                        clearInterval(checkError);
+                    }, 5000);
+                }, 2000);
+            }
+        });
+    </script>
 </body>
 </html>

@@ -194,14 +194,14 @@ class ProjectWebsite {
         // Calculate total hours across all weeks
         const totalHoursAllWeeks = projectData.timeEntries.reduce((sum, entry) => sum + entry.hoursWorked, 0);
         
-        // Calculate average hours per member
-        const avgHours = DataManager.getAverageHoursPerMember();
+        // Calculate average hours per week
+        const avgHoursPerWeek = DataManager.getAverageHoursPerWeek();
         
         // Count weeks with data
         const weeksCount = projectData.weeklySummaries.length;
         
         document.getElementById('total-hours').textContent = totalHoursThisWeek;
-        document.getElementById('avg-hours').textContent = avgHours;
+        document.getElementById('avg-hours').textContent = avgHoursPerWeek;
         document.getElementById('weeks-count').textContent = weeksCount;
     }
     
